@@ -12,6 +12,11 @@ public class Q1085 {
         int x = sc.nextInt();
         int y = sc.nextInt();
 
+/*개선한 코드*/
+        int result = Math.min(Math.min(w, x-w), Math.min(h, y-h));
+        System.out.println(result);
+/*원래 코드*/
+/*
         int[] arr = new int[4];
 
         arr[0] = w - 0;
@@ -22,6 +27,6 @@ public class Q1085 {
         Arrays.sort(arr);
 
         System.out.println(arr[0]);
-
+*/
     }
 }
