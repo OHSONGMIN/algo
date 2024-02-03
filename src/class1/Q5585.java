@@ -13,7 +13,7 @@ public class Q5585 {
         count += price % 100 / 50;
         count += price % 50 / 10;
         count += price % 10 / 5;
-        count += price % 5 / 1;
+        count += price % 5;
 
         System.out.println(count);
     }
