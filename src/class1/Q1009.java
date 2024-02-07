@@ -10,7 +10,7 @@ public class Q1009 {
         for (int i = 0; i < test; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
-            
+
             int result = a % 10;
 
             for (int j = 1; j < b; j++) {
