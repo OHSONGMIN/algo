@@ -1,26 +1,21 @@
-package class1;
+package class2;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Q1546 {
+public class Q2751 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int test = sc.nextInt();
 
         int[] arr = new int[test];
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < test; i++) {
             arr[i] = sc.nextInt();
         }
 
         Arrays.sort(arr);
-        double max = arr[arr.length-1];
-        double sum = 0;
-
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i] / max * 100;
+        for (int i = 0; i < test; i++) {
+            System.out.println(arr[i]);
         }
-
-        System.out.println(sum / test);
     }
 }
