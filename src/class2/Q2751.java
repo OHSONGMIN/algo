@@ -60,19 +60,21 @@ public class Q2751 {
         System.out.println(sb);
         */
     }
-    /*
-    private static int[] Merge_Sort(int[] arr, int start, int end) {
+
+    private static void Merge_Sort(int[] arr, int start, int end) {
         int mid = (start + end) / 2; //중간 Idx 구하기
 
-        if (arr.length == 1) return arr;
+        //라고 하면 안된다 무한히 재귀함수가 반복될 것
+        //if (arr.length == 1) return arr;
 
-        //다시 반으로 나누기 (재귀함수)
-        Merge_Sort(arr, start, mid);
-        Merge_Sort(arr, mid + 1, end);
+        if (start < end) {
+            //다시 반으로 나누기 (재귀함수)
+            Merge_Sort(arr, start, mid);
+            Merge_Sort(arr, mid + 1, end);
 
-        //정렬 후 하나로 합치고 arr에 복사하기
-        Merge(arr, start, mid, end);
-        return arr;
+            //정렬 후 하나로 합치고 arr에 복사하기
+            Merge(arr, start, mid, end);
+        }
     }
 
     private static void Merge(int[] arr, int start, int mid, int end) {
@@ -90,20 +92,21 @@ public class Q2751 {
         }
 
         //만약 start가 mid를 넘거나 mid + 1이 end를 넘으면
-        if (i > mid) { //start가 mid를 넘으면 mid + 1 ~ end까지의 나머지 배열을 newArr 뒤에 붙인다.
-            for (int k = m; m <= end; m++) {
-                newArr[j++] = arr[m];
+        if (i > mid) { //i가 mid를 넘으면 m ~ end까지의 나머지 배열을 newArr 뒤에 붙인다.
+            for (int k = m; k <= end; k++) {
+                newArr[j++] = arr[k];
             }
-        } else { //mid + 1이 end를 넘으면 start ~ mid까지의 나머지 배열을 newArr 뒤에 붙인다.
-            for (int k = i; i <= mid; i++) {
-                newArr[j++] = arr[i];
+        } else { //m이 end를 넘으면 i ~ mid까지의 나머지 배열을 newArr 뒤에 붙인다.
+            for (int k = i; k <= mid; k++) {
+                newArr[j++] = arr[k];
             }
         }
 
-        for (int p = 0; p < arr.length; p++) {
+        //arr에 newArr을 복사한다.
+        for (int p = 0; p < newArr.length; p++) {
             arr[p] = newArr[p];
         }
     }
-    
-     */
+
+
 }
