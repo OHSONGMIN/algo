@@ -13,23 +13,30 @@ public class Q1929 {
 
         StringBuilder sb = new StringBuilder();
 
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        Boolean[] arr = new Boolean[N+1]; //숫자 i의 소수 여부를 arr[i]에 들어가도록 하기 위해 배열 크기를 N+1로 설정한다.
+
+        arr[0] = false; //소수 아님
+        arr[1] = false; //소수 아님
+
+        //2~N까지 일단 true로 설정
+        for (int i = 2; i <= N; i++) {
+            arr[i] = true;
+        }
+
+        //소수 아닌 것을 false로 처리
+        for (int i = 2; i * i <= N; i++) {
+            if (arr[i] == true) {
+                for (int j = i * i; j <= N; j = j + i) { //i * i 이후 i의 배수는 false
+                    arr[j] = false;
+                }
+            }
+        }
 
         for (int i = M; i <= N; i++) {
-            if (isDecimal(i) == 0) bw.write(i + "\n");
+            if (arr[i] == true) sb.append(i).append("\n");
         }
-        bw.flush();
-        bw.close();
+
+        System.out.println(sb);
     }
 
-    private static int isDecimal(int i) {
-        if (i == 1) return -1;
-        if (i == 2) return 0;
-
-        int count = 0;
-        for (int j = 2; j < i; j++) {
-            if(i % j == 0) count++;
-        }
-        return count;
-    }
 }
