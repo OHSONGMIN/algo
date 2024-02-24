@@ -1,19 +1,23 @@
 package class2;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Q2775 {
     static int[][] arr = new int[15][15]; //재귀함수 이용하기 위해
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-/*재귀함수를 이용해보자 - 먼저 main 메서드 바깥에 in[][] 선언*/
+    public static void main(String[] args) throws IOException {
+        //Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
+
+/*재귀함수를 이용해보자 - 먼저 main 메서드 바깥에 int[][] 선언-시간초관데*/
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < T; i++) {
-            int K = sc.nextInt();
-            int N = sc.nextInt();
+            int K = Integer.parseInt(br.readLine());
+            int N = Integer.parseInt(br.readLine());
             sb.append(arrNum(K, N)).append("\n");
         }
 
@@ -44,9 +48,9 @@ public class Q2775 {
 
     private static int arrNum(int k, int n) {
         if (arr[k][n] != 0) return arr[k][n];
-        else if (k == 0) return arr[0][n] = n;
-        else if (n == 0) return arr[k][0] = 0;
-        else return arr[k][n-1] + arr[k-1][n];
+        else if (k == 0) return arr[k][n] = n;
+        else if (n == 0) return arr[k][n] = 0;
+        else return arrNum(k, n-1) + arrNum(k-1, n);
     }
 
 /*
