@@ -1,26 +1,36 @@
 package class3;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 public class Q17219 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        Map<String, String> map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
+
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+
+        Map<String, String> map = new HashMap<>(); //<사이트주소, 비밀번호>
+
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            String site = st.nextToken();
-            String passwd = st.nextToken();
-            map.put(site,passwd);
+
+            map.put(st.nextToken(), st.nextToken());
         }
+
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < m; i++) {
-            String site = br.readLine();
-            sb.append(map.get(site) + "\n");
+
+        for (int i = 0; i < M; i++) {
+            sb.append(map.get(br.readLine())).append("\n");
         }
-        System.out.print(sb);
+
+        System.out.println(sb);
+
     }
+
 }
