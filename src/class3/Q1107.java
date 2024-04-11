@@ -55,6 +55,7 @@ public class Q1107 { //시간 초과~~~~~~~~~~~~~~~
             for (int i = 0; i < str.length(); i++) {
                 if (set.contains(str.charAt(i) - '0')) {
                     check = false;
+                    break;
                 }
             }
             if(check) return (num - n) + String.valueOf(num).length();
@@ -74,6 +75,7 @@ public class Q1107 { //시간 초과~~~~~~~~~~~~~~~
             for (int i = 0; i < str.length(); i++) {
                 if (set.contains(str.charAt(i) - '0')) {
                     check = false;
+                    break;
                 }
             }
 
